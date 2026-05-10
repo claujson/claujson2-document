@@ -585,7 +585,7 @@ writer(int thr_num = 0);
 | `write(const string&, const _Value&, bool pretty)` | 파일로 직렬화 |
 | `write_parallel(Arena*, string&, _Value&, uint64_t, bool)` | 트리 분할 병렬 직렬화 |
 | `write_parallel2(string&, const _Value&, uint64_t, bool)` | JsonView 기반 병렬 직렬화 |
-| `write_parallel3(Arena*, string&, _Value&, uint64_t, bool)` | NodeView 기반 병렬 직렬화 (실험적) |
+| `write_parallel3(Arena*, string&, _Value&, uint64_t, bool)` | NodeView 기반 병렬 직렬화 (실험적-테스트중..) |
 
 #### 직렬화 방식 비교
 
@@ -630,6 +630,7 @@ diff 결과는 JSON Patch(RFC 6902 유사) 형식의 배열입니다:
 ### 문자열 변환 함수
 
 ```cpp
+/*
 // JSON 문자열 내 이스케이프 처리 (예: \n -> \\n)
 std::pair<bool, std::string> convert_to_string_in_json(StringView x);
 
@@ -641,15 +642,18 @@ bool convert_number(StringView x, claujson::_Value& data);
 
 // 문자열을 _Value로 변환
 bool convert_string(StringView x, claujson::_Value& data);
+*/
 ```
 
 #### C++20 (char8_t) 지원
 
 ```cpp
+/*
 #if __cpp_lib_char8_t
 std::pair<bool, std::string> convert_to_string_in_json(std::u8string_view x);
 bool is_valid_string_in_json(std::u8string_view x);
 #endif
+*/
 ```
 
 ---
